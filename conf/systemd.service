@@ -7,8 +7,9 @@ Type=simple
 User=__APP__
 Group=__APP__
 
+Environment="DJANGO_SETTINGS_MODULE=__APP__.settings"
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=
+ExecStart=__INSTALL_DIR__/virt/bin/gunicorn lucterios.framework.wsgi --bind 0.0.0.0:__PORT__ -w 1 --timeout 600 --access-logfile __INSTALL_DIR__/access.log --error-logfile __INSTALL_DIR__/error.log
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 Restart=on-failure
