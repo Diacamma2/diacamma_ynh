@@ -19,14 +19,14 @@ then
 fi
 if [ "$lct_appli" == "syndic" ]
 then
-    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.member,diacamma.event,diacamma.accounting,diacamma.invoice,diacamma.payoff"
+    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.condominium,diacamma.accounting,diacamma.payoff"
     APPLITYPE="diacamma.syndic"
 fi
 python3 -m venv venv
 venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents diacamma-asso diacamma-syndic diacamma-financial gunicorn psycopg2-binary psycopg2
-venv/bin/python -m lucterios.install.lucterios_admin add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{}'
+venv/bin/python3 -m lucterios.install.lucterios_admin add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{}'
 
-venv/bin/python manage_${app}.py collectstatic --noinput -l
+venv/bin/python3 manage_${app}.py collectstatic --noinput -l
 rm -rf ${app}/static/static
 rm -rf ${app}/static/plugins
 rm -rf ${app}/static/tmp
