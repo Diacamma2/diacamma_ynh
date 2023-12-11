@@ -1,0 +1,80 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# INSTALL APP
+#=================================================
+ynh_script_progression --message="Installing app..." --weight=5
+
+pushd $install_dir
+APPLITYPE="lucterios.standard"
+MODULES="lucterios lucterios-standard lucterios-contacts lucterios-documents"
+DATABASE="postgresql:name=$db_name,user=$db_user,password=$db_pwd,host=localhost"
+if [ "$lct_appli" == "asso" ]
+then
+    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.member,diacamma.event,diacamma.accounting,diacamma.invoice,diacamma.payoff"
+    APPLITYPE="diacamma.asso"
+fi
+if [ "$lct_appli" == "syndic" ]
+then
+    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.member,diacamma.event,diacamma.accounting,diacamma.invoice,diacamma.payoff"
+    APPLITYPE="diacamma.syndic"
+fi
+python3 -m venv venv
+venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents diacamma-asso diacamma-syndic diacamma-financial gunicorn psycopg2-binary psycopg2
+venv/bin/python -m lucterios.install.lucterios_admin add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{}'
+
+venv/bin/python manage_${app}.py collectstatic --noinput -l
+rm -rf ${app}/static/static
+rm -rf ${app}/static/plugins
+rm -rf ${app}/static/tmp
+rm -rf ${app}/static/archives
+rm -rf ${app}/static/usr
+rm -rf ${app}/static/__pycache__
+rm -rf ${app}/static/settings.py
+rm -rf ${app}/static/django_error.log
+rm -rf ${app}/static/__init__.py
+
+popd
+
+chmod 400 "$install_dir/"
+chown ${app}:${app} "$install_dir/"
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression --message="Adding system configurations related to ${app}..."
+
+# Create a dedicated NGINX config using the conf/nginx.conf template
+ynh_add_nginx_config
+
+### `ynh_systemd_config` is used to configure a systemd script for an app, using the conf/systemd.service template
+
+# Create a dedicated systemd config
+ynh_add_systemd_config
+
+### `yunohost service add` integrates a service in YunoHost. It then gets
+### displayed in the admin interface and through the others `yunohost service` commands.
+
+yunohost service add ${app} --log="/var/log/${app}/${app}.log"
+
+# Use logrotate to manage application logfile(s)
+ynh_use_logrotate
+
+# Create a dedicated Fail2Ban config
+ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex=""
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression --message="Starting app's systemd service..."
+
+# Start a systemd service
+ynh_systemd_action --service_name=${app} --action="start" --log_path="/var/log/${app}/${app}.log"
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+ynh_script_progression --message="Installation of ${app} completed" --last
