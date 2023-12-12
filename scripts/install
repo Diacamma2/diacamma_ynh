@@ -21,7 +21,7 @@ refresh_collect
 
 if [ ! -z "$archive" ]
 then
-    curl $archive -O /tmp/diacamma_archive.lbk
+    curl $archive > /tmp/diacamma_archive.lbk
     pushd $install_dir
     venv/bin/lucterios_admin.py addrestore -n inst-${app} -f /tmp/diacamma_archive.lbk
     popd    
