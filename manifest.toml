@@ -52,6 +52,7 @@ ram.runtime = "50M"
     type = "string"
     choices.asso = "Asso"
     choices.syndic = "Syndic"
+    choices.standard = "Standard"
     
     [install.language]
     ask.en = "Choose the application language"
