@@ -26,14 +26,16 @@ function refresh_collect()
 {
     pushd $install_dir
     venv/bin/python3 manage_inst-${app}.py collectstatic --noinput -l
-    rm -rf ${app}/static/static
-    rm -rf ${app}/static/plugins
-    rm -rf ${app}/static/tmp
-    rm -rf ${app}/static/archives
-    rm -rf ${app}/static/usr
-    rm -rf ${app}/static/__pycache__
-    rm -rf ${app}/static/settings.py
-    rm -rf ${app}/static/django_error.log
-    rm -rf ${app}/static/__init__.py
+    rm -rf inst-${app}/static/static
+    rm -rf inst-${app}/static/plugins
+    rm -rf inst-${app}/static/tmp
+    rm -rf inst-${app}/static/archives
+    rm -rf inst-${app}/static/usr
+    rm -rf inst-${app}/static/__pycache__
+    rm -rf inst-${app}/static/settings.py
+    rm -rf inst-${app}/static/django_error.log
+    rm -rf inst-${app}/static/__init__.py
+    chown -R ${app}:www-data .
+    chmod 750 .
     popd
 }

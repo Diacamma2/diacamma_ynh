@@ -60,6 +60,12 @@ ram.runtime = "50M"
     type = "select"
     choices = ["fr","en"]
 
+    [install.archive]
+    ask.en = "Archive to upload"
+    ask.fr = "Archive à télécharger"
+    type = "string"
+    optional = true
+
 [resources]
     # See the packaging documentation for the full set
     # of explanation regarding the behavior and properties for each of those
