@@ -18,6 +18,7 @@ lucterios_admin.py installed
 export PYTHONPATH="$install_dir/venv/lib/python3.9/site-packages"
 ls -l $install_dir/venv/lib/python*/site-packages/lucterios
 ls -l $install_dir/venv/lib/python*/site-packages/diacamma
+ls -l $install_dir/venv/lib/python*/site-packages/diacamma/member
 ynh_script_progression --message=" >> PYTHONPATH=${PYTHONPATH}"
 lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'"}'
 
