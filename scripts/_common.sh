@@ -39,3 +39,16 @@ function refresh_collect()
     chmod 750 .
     popd
 }
+
+function check_params()
+{
+    pushd $install_dir
+    echo "
+from lucterios.CORE.parameters import Params
+Params.setvalue('mailing-smtpserver', 'localhost')
+Params.setvalue('mailing-smtpport', 1025)
+" > /tmp/diacamma_script.py
+    venv/bin/python3 manage_inst-${app}.py shell < /tmp/diacamma_script.py
+    venv/bin/lucterios_admin.py security -n inst-${app} -e "MODE=0"
+    popd
+}

@@ -18,6 +18,9 @@ popd
 
 refresh_collect
 
+check_params
+
+
 #=================================================
 # RESTORE THE MYSQL DATABASE
 #=================================================
