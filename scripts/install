@@ -15,7 +15,9 @@ pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-docume
 pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 pip3 install -U gunicorn psycopg2-binary psycopg2
 lucterios_admin.py installed
-export PYTHONPATH="$install_dir/venv/lib/python3.9/site-packages"
+sitepackpath=$install_dir/venv/lib/python3.9/site-packages
+export PYTHONPATH="$sitepackpath:$sitepackpath/lucterios:$sitepackpath/diacamma:$sitepackpath/diacamma/accounting:$sitepackpath/diacamma/asso:$sitepackpath/diacamma/condominium:$sitepackpath/diacamma/event:$sitepackpath/diacamma/invoice:$sitepackpath/diacamma/member:$sitepackpath/diacamma/payoff:$sitepackpath/diacamma/syndic"
+
 ls -l $install_dir/venv/lib/python*/site-packages/lucterios
 ls -l $install_dir/venv/lib/python*/site-packages/diacamma
 ls -l $install_dir/venv/lib/python*/site-packages/diacamma/member
