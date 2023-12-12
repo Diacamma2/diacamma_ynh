@@ -24,9 +24,10 @@ then
 fi
 python3 -m venv venv
 venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents diacamma-asso diacamma-syndic diacamma-financial gunicorn psycopg2-binary psycopg2
-venv/bin/python3 -m lucterios.install.lucterios_admin add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{}'
+. venv/bin/activate
+python3 lucterios_admin.py add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{"LANGUAGES":"'${language}'"}'
 
-venv/bin/python3 manage_${app}.py collectstatic --noinput -l
+python3 manage_${app}.py collectstatic --noinput -l
 rm -rf ${app}/static/static
 rm -rf ${app}/static/plugins
 rm -rf ${app}/static/tmp
