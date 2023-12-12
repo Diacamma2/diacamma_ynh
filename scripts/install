@@ -23,8 +23,11 @@ then
     APPLITYPE="diacamma.syndic"
 fi
 python3 -m venv venv
-venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents diacamma-asso diacamma-syndic diacamma-financial gunicorn psycopg2-binary psycopg2
 . venv/bin/activate
+pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents
+pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
+pip3 install -U gunicorn psycopg2-binary psycopg2
+lucterios_admin.py installed
 lucterios_admin.py add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{"LANGUAGES":"'${language}'"}'
 
 python3 manage_${app}.py collectstatic --noinput -l
