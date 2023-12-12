@@ -9,37 +9,15 @@ source /usr/share/yunohost/helpers
 ynh_script_progression --message="Installing app..." --weight=5
 
 pushd $install_dir
-APPLITYPE="lucterios.standard"
-MODULES="lucterios lucterios-standard lucterios-contacts lucterios-documents"
-DATABASE="postgresql:name=$db_name,user=$db_user,password=$db_pwd,host=localhost"
-if [ "$lct_appli" == "asso" ]
-then
-    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.member,diacamma.event,diacamma.accounting,diacamma.invoice,diacamma.payoff"
-    APPLITYPE="diacamma.asso"
-fi
-if [ "$lct_appli" == "syndic" ]
-then
-    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.condominium,diacamma.accounting,diacamma.payoff"
-    APPLITYPE="diacamma.syndic"
-fi
 python3 -m venv venv
 . venv/bin/activate
 pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents
 pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 pip3 install -U gunicorn psycopg2-binary psycopg2
 lucterios_admin.py installed
-lucterios_admin.py add -n ${app} -p $APPLITYPE -m $MODULES -d $DATABASE -e '{"LANGUAGES":"'${language}'"}'
+lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'"}'
 
-python3 manage_${app}.py collectstatic --noinput -l
-rm -rf ${app}/static/static
-rm -rf ${app}/static/plugins
-rm -rf ${app}/static/tmp
-rm -rf ${app}/static/archives
-rm -rf ${app}/static/usr
-rm -rf ${app}/static/__pycache__
-rm -rf ${app}/static/settings.py
-rm -rf ${app}/static/django_error.log
-rm -rf ${app}/static/__init__.py
+refresh_collect
 
 popd
 
