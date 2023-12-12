@@ -14,7 +14,7 @@ venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucteri
 venv/bin/pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 venv/bin/pip3 install -U gunicorn psycopg2-binary psycopg2
 venv/bin/lucterios_admin.py installed
-venv/bin/lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'"}'
+venv/bin/lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'", "from diacamma import accounting,payoff,invoice,member,event # import specifique": ""}'
 popd
 
 refresh_collect
