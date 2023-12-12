@@ -50,9 +50,9 @@ ram.runtime = "50M"
     ask.fr = "Application"
     help.fr = "Quelle application voulez-vous installer ?"
     type = "string"
-    choices.asso = "Asso"
-    choices.syndic = "Syndic"
-    choices.standard = "Standard"
+    choices.asso = "Diacamma Asso"
+    choices.syndic = "Diacamma Syndic"
+    choices.standard = "Lucterios Standard"
     
     [install.language]
     ask.en = "Choose the application language"

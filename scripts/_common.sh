@@ -9,12 +9,12 @@ MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing"
 DATABASE="postgresql:name=$db_name,user=$db_user,password=$db_pwd,host=localhost"
 if [ "$lct_appli" == "asso" ]
 then
-    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.member,diacamma.event,diacamma.accounting,diacamma.invoice,diacamma.payoff"
+    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.accounting,diacamma.payoff,diacamma.invoice,diacamma.member,diacamma.event"
     APPLITYPE="diacamma.asso"
 fi
 if [ "$lct_appli" == "syndic" ]
 then
-    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.condominium,diacamma.accounting,diacamma.payoff"
+    MODULES="lucterios.contacts,lucterios.documents,lucterios.mailing,diacamma.accounting,diacamma.payoff,diacamma.condominium"
     APPLITYPE="diacamma.syndic"
 fi
 
