@@ -14,6 +14,8 @@ python3 -m venv venv
 pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents
 pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 pip3 install -U gunicorn psycopg2-binary psycopg2
+echo "PYTHONPATH=$PYTHONPATH"
+ls -l $install_dir/venv/
 lucterios_admin.py installed
 lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'"}'
 
