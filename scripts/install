@@ -14,10 +14,10 @@ python3 -m venv venv
 pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents
 pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 pip3 install -U gunicorn psycopg2-binary psycopg2
-ynh_script_progression --message=" >> PYTHONPATH=$PYTHONPATH"
+lucterios_admin.py installed
 ls -l $install_dir/venv/lib/python3.8/site-packages/lucterios
 ls -l $install_dir/venv/lib/python3.8/site-packages/diacamma
-lucterios_admin.py installed
+ynh_script_progression --message=" >> PYTHONPATH=${PYTHONPATH}"
 lucterios_admin.py add -n ${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGES":"'${language}'"}'
 
 refresh_collect
