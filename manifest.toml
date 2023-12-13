@@ -21,7 +21,7 @@ yunohost = '>= 11.2'
 # List of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64), for example: ["amd64", "i386']
 architectures = "all" # TODO : handle the "all" option (no ["all"])
 multi_instance = true
-ldap = false
+ldap = true
 sso = false
 disk = "50M"
 ram.build = "50M"
@@ -88,7 +88,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "libxml2-dev,libxslt-dev,libjpeg-dev,libfreetype6,libfreetype6-dev,zlib1g-dev,libpq-dev,python3-pip,python3-dev,python3-tk,python3-pil,python3-venv,build-essential,pkg-config,postgresql"
+    packages = "libxml2-dev,libxslt-dev,libjpeg-dev,libfreetype6,libfreetype6-dev,zlib1g-dev,libpq-dev,python3-pip,python3-dev,python3-tk,python3-pil,python3-venv,build-essential,pkg-config,postgresql,jq"
 
     [resources.ports]
     # This will pick a random port for reverse-proxying and store it as the $port setting
@@ -96,4 +96,9 @@ ram.runtime = "50M"
     # This will automatically provision/deprovison a database and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
     type = "postgresql"
 
+    [resources.permissions]
+    main.url = "/"
     
+    admin.url = "/"
+    admin.show_tile = false    # This means that this permission won't correspond to a tile in YunoHost's user portal
+    admin.allowed = "admins"   # Initialize the access for the "admins" group ... You can also use an install question called `init_admin_permission` to let the server admin choose this.

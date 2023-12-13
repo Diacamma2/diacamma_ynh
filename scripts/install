@@ -14,7 +14,9 @@ venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucteri
 venv/bin/pip3 install -U diacamma-asso diacamma-syndic diacamma-financial
 venv/bin/pip3 install -U gunicorn psycopg2-binary psycopg2
 venv/bin/lucterios_admin.py installed
-venv/bin/lucterios_admin.py add -n inst-${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e '{"LANGUAGE_CODE":"'${language}'","USE_X_FORWARDED_HOST":true, "FORCE_SCRIPT_NAME":"/'${app}'"}'
+ynh_add_config --template="../conf/extra_diacamma.json" --destination="/tmp/extra.json"
+extra_json=$(jq -c . /tmp/extra.json)
+venv/bin/lucterios_admin.py add -n inst-${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e ''$extra_json''
 popd
 
 refresh_collect
