@@ -52,7 +52,7 @@
                 "level": "WARNING", 
                 "handlers": ["logfile", "console"], 
                 "propagate": false
-            }, 
-        },
+            }
+        }
     }
 }
