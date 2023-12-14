@@ -20,8 +20,6 @@ ynh_remove_nginx_config
 
 ynh_remove_logrotate
 
-ynh_remove_fail2ban_config
-
 ynh_secure_remove --file="/var/log/$app"
 
 #=================================================
