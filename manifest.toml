@@ -67,6 +67,7 @@ ram.runtime = "50M"
     ask.fr = "Archive à télécharger"
     type = "string"
     optional = true
+    default = ""
 
 [resources]
     # See the packaging documentation for the full set
