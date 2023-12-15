@@ -10,9 +10,9 @@ ynh_script_progression --message="Installing app..." --weight=5
 
 pushd $install_dir
 python3 -m venv venv
-if [ "$develop" == "true" ]
+if [ $develop -eq 1 ]
 then
-    echo "https://pypi.diacamma.org" > extra_url
+    ynh_add_config --template="../conf/extra_url" --destination="./extra_url"
     pip_option='--extra-index-url "https://pypi.diacamma.org"'
 else
     pip_option=''

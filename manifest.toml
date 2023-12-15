@@ -11,7 +11,7 @@ version = "23.12.15.16~ynh1"
 maintainers = ["Laurent Gay"]
 
 [upstream]
-license = "GNU General Public License v3.0"
+license = " GPL-3.0-or-later"
 website = "https://www.diacamma.org"
 demo = "https://asso.diacamma.org"
 code = "https://github.com/Diacamma2"
