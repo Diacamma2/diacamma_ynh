@@ -19,7 +19,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Ceci est une fausse description des fonctionalités de l'app
 
 
-**Version incluse :** 23.12.14.16~ynh1
+**Version incluse :** 23.12.15.15~ynh1
 
 **Démo :** https://asso.diacamma.org
 
