@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 This is a dummy description of this app features
 
 
-**Shipped version:** 23.12.15.15~ynh1
+**Shipped version:** 23.12.15.16~ynh1
 
 **Demo:** https://asso.diacamma.org
 
