@@ -16,11 +16,17 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Management application for volunteers (association, condominium)
+This is a dummy description of this app features
+
 
 **Shipped version:** 23.12.14.16~ynh1
 
 **Demo:** https://asso.diacamma.org
+
+## Screenshots
+
+![Screenshot of Diacamma](./doc/screenshots/example.jpg)
+
 ## Documentation and resources
 
 * Official app website: <https://www.diacamma.org>
