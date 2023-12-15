@@ -61,6 +61,10 @@ ynh_script_progression --message="Starting app's systemd service..."
 # Start a systemd service
 ynh_systemd_action --service_name=${app} --action="start" --log_path="/var/log/${app}/${app}.log"
 
+# FIXME : temporary debug
+ynh_print_info --message="$(namei -l $install_dir/inst-$app/static/lucterios.framework/web/index.html)"
+ynh_print_info --message="$(curl --insecure -L -v https://$domain$path)"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
