@@ -10,9 +10,15 @@ ynh_script_progression --message="Installing app..." --weight=5
 
 pushd $install_dir
 python3 -m venv venv
-cat "https://pypi.diacamma.org" > extra_url
-venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents --extra-index-url "https://pypi.diacamma.org"
-venv/bin/pip3 install -U diacamma-asso diacamma-syndic diacamma-financial --extra-index-url "https://pypi.diacamma.org"
+if [ "$develop" == "true" ]
+then
+    echo "https://pypi.diacamma.org" > extra_url
+    pip_option='--extra-index-url "https://pypi.diacamma.org"'
+else
+    pip_option=''
+fi
+venv/bin/pip3 install -U lucterios lucterios-standard lucterios-contacts lucterios-documents $pip_option 
+venv/bin/pip3 install -U diacamma-asso diacamma-syndic diacamma-financial $pip_option
 venv/bin/pip3 install -U gunicorn psycopg2-binary psycopg2 django-auth-ldap3-ad
 sed -i 's|member=%s|inheritPermission=%s|g' venv/lib/python*/site-packages/django_auth_ldap3_ad/auth.py
 venv/bin/lucterios_admin.py installed
@@ -21,8 +27,6 @@ extra_json=$(jq -c . /tmp/extra.json)
 venv/bin/lucterios_admin.py add -n inst-${app} -p "${APPLITYPE}" -m "${MODULES}" -d "${DATABASE}" -e ''$extra_json''
 popd
 
-refresh_collect
-
 if [ ! -z "$archive" ]
 then
     curl $archive > /tmp/diacamma_archive.lbk
@@ -30,6 +34,8 @@ then
     venv/bin/lucterios_admin.py restore -n inst-${app} -f /tmp/diacamma_archive.lbk
     popd    
 fi
+
+refresh_collect
 
 check_params
 

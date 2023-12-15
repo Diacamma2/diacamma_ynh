@@ -6,7 +6,7 @@ name = "Diacamma"
 description.en = "Management application for volunteers (association, condominium)"
 description.fr = "Application de gestion pour les bénévoles (association, copropriété)"
 
-version = "23.12.15.15~ynh1"
+version = "23.12.15.16~ynh1"
 
 maintainers = ["Laurent Gay"]
 
@@ -65,9 +65,15 @@ ram.runtime = "50M"
     [install.archive]
     ask.en = "Archive to upload"
     ask.fr = "Archive à télécharger"
-    type = "string"
+    type = "url"
     optional = true
     default = ""
+    
+    [install.develop]
+    ask.en = "Use the development version"
+    ask.fr = "Utiliser la version de développement"
+    type = "boolean"
+    default = false
 
 [resources]
     # See the packaging documentation for the full set
