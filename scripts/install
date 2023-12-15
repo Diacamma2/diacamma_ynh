@@ -62,7 +62,8 @@ ynh_script_progression --message="Starting app's systemd service..."
 ynh_systemd_action --service_name=${app} --action="start" --log_path="/var/log/${app}/${app}.log"
 
 # FIXME : temporary debug
-ynh_print_info "$(ls $install_dir/inst-$app/static)"
+ynh_print_info "$(ls $install_dir/inst-$app/static/lucterios.framework/web)"
+ynh_print_info "$(journalctl -u $app --no-pager --no-hostname)"
 
 #=================================================
 # END OF SCRIPT
