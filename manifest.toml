@@ -53,14 +53,14 @@ ram.runtime = "50M"
     choices.asso = "Diacamma Asso"
     choices.syndic = "Diacamma Syndic"
     choices.standard = "Lucterios Standard"
-    default = "standard"
+    default = "asso"
     
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
     type = "select"
     choices = ["fr","en"]
-    default = "en"
+    default = "fr"
 
     [install.archive]
     ask.en = "Archive to upload"
