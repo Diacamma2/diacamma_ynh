@@ -6,7 +6,7 @@ name = "Diacamma"
 description.en = "Management application for volunteers (association, condominium)"
 description.fr = "Application de gestion pour les bénévoles (association, copropriété)"
 
-version = "23.12.16.16~ynh1"
+version = "23.12.16.17~ynh1"
 
 maintainers = ["Laurent Gay"]
 
@@ -46,18 +46,19 @@ ram.runtime = "50M"
 
     [install.lct_appli]
     ask.en = "Application"
-    help.en = "What application do you want to install?"
     ask.fr = "Application"
+    help.en = "What application do you want to install?"
     help.fr = "Quelle application voulez-vous installer ?"
     type = "select"
     choices.asso = "Diacamma Asso"
     choices.syndic = "Diacamma Syndic"
-    choices.standard = "Lucterios Standard"
     default = "asso"
     
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
+    help.en = "This language will be used in the software installation"
+    help.fr = "Cette langue sera utiliser dans l'installation du logiciel"
     type = "select"
     choices = ["fr","en"]
     default = "fr"
@@ -65,6 +66,8 @@ ram.runtime = "50M"
     [install.archive]
     ask.en = "Archive to upload"
     ask.fr = "Archive à télécharger"
+    help.en = "Data from this archive will be loaded at installation"
+    help.fr = "Les données de cette archive seront chargées à l'installation"
     type = "url"
     optional = true
     default = ""
@@ -72,6 +75,8 @@ ram.runtime = "50M"
     [install.develop]
     ask.en = "Use the development version"
     ask.fr = "Utiliser la version de développement"
+    help.en = "Facility will use 'https://pypi.diacamma.org' as repository"
+    help.fr = "L'installation utilisera 'https://pypi.diacamma.org' comme dépot"
     type = "boolean"
     default = false
 
