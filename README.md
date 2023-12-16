@@ -20,7 +20,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 _Diacamma_ is a set of free and open source administrative and financial management software designed and developed for volunteers.
 
-##Diacamma Asso
+## Diacamma Asso
 
 **Simply manage memberships to your association**
 
@@ -32,7 +32,7 @@ _Diacamma Asso_ allows you to easily classify your current and past members.
  * Manage the stock of your associative purchasing center.
  * Link an invoice to your dues and events.
  
-##Diacamma Syndic
+## Diacamma Syndic
 
 **Follow the situation of your condo**
 
@@ -43,6 +43,7 @@ _Diacamma Syndic_ allows voluntary trustees to simply manage their co-ownership.
  * Create and send calls for funds.
  * Break down the expenses of the co-ownership on each one according to its parts.
  
+
 
 **Shipped version:** 23.12.16.17~ynh1
 
