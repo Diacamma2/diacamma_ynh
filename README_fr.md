@@ -16,11 +16,45 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Application de gestion pour les bénévoles (association, copropriété)
+# Présentation de Diacamma
 
-**Version incluse :** 23.12.16.16~ynh1
+_Diacamma_ est un ensemble de logiciels libres et gratuits de gestion administrative et financière imaginé et développé pour les bénévoles.
+
+##Diacamma Asso
+
+**Gérer simplement les adhésions à votre association**
+
+_Diacamma Asso_ vous permet de classer facilement vos adhérents présents et passés.
+
+ * Avoir la liste de vos adhérents avec toutes leurs coordonnées.
+ * Gérer leurs cotisations par activités et catégories.
+ * Gérer facilement les événements de votre association (examens, stages, sorties, ...).
+ * Gérer le stock de votre centrale d'achat associative.
+ * Lier une facture à vos cotisations et vos événements.
+
+ 
+##Diacamma Syndic
+
+**Suivez la situation de votre copropriété**
+
+_Diacamma Syndic_ permet aux syndics bénévoles de gérer simplement leur copropriété.
+
+ * Tenir une comptabilité en conformité avec la réglementation française des copropriétés.
+ * Suivre la situation de chaques copropriétaires.
+ * Créer et envoyer des appels de fonds.
+ * Ventiler les dépenses de la copropriété sur chacun en fonction de ses tantièmes.
+
+
+**Version incluse :** 23.12.16.17~ynh1
 
 **Démo :** https://asso.diacamma.org
+
+## Captures d’écran
+
+![Capture d’écran de Diacamma](./doc/screenshots/bilan_comptable.png)
+![Capture d’écran de Diacamma](./doc/screenshots/fiche_adherent.png)
+![Capture d’écran de Diacamma](./doc/screenshots/situation_coporprietaire.png)
+
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://www.diacamma.org>
