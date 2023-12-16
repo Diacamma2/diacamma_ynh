@@ -16,17 +16,11 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Ceci est une fausse description des fonctionalités de l'app
+Application de gestion pour les bénévoles (association, copropriété)
 
-
-**Version incluse :** 23.12.15.16~ynh1
+**Version incluse :** 23.12.16.16~ynh1
 
 **Démo :** https://asso.diacamma.org
-
-## Captures d’écran
-
-![Capture d’écran de Diacamma](./doc/screenshots/example.jpg)
-
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://www.diacamma.org>
