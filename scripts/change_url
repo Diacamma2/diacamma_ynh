@@ -30,8 +30,17 @@ ynh_change_url_nginx_config
 #=================================================
 # SPECIFIC MODIFICATIONS
 #=================================================
-# ...
-#=================================================
+
+pushd $install_dir
+ynh_add_config --template="../conf/extra_diacamma.json" --destination="/tmp/extra.json"
+if [ "$path" == "/" ]
+then
+    sed -i "/USE_X_FORWARDED_HOST/d" /tmp/extra.json 
+    sed -i "/FORCE_SCRIPT_NAME/d" /tmp/extra.json 
+fi
+extra_json=$(jq -c . /tmp/extra.json)
+venv/bin/lucterios_admin.py modif -n inst-${app} -e ''$extra_json''
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
