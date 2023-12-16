@@ -2,7 +2,7 @@
 
 _Diacamma_ est un ensemble de logiciels libres et gratuits de gestion administrative et financière imaginé et développé pour les bénévoles.
 
-##Diacamma Asso
+## Diacamma Asso
 
 **Gérer simplement les adhésions à votre association**
 
@@ -15,7 +15,7 @@ _Diacamma Asso_ vous permet de classer facilement vos adhérents présents et pa
  * Lier une facture à vos cotisations et vos événements.
 
  
-##Diacamma Syndic
+## Diacamma Syndic
 
 **Suivez la situation de votre copropriété**
 
