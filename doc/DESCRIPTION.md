@@ -2,7 +2,7 @@
 
 _Diacamma_ is a set of free and open source administrative and financial management software designed and developed for volunteers.
 
-##Diacamma Asso
+## Diacamma Asso
 
 **Simply manage memberships to your association**
 
@@ -14,7 +14,7 @@ _Diacamma Asso_ allows you to easily classify your current and past members.
  * Manage the stock of your associative purchasing center.
  * Link an invoice to your dues and events.
  
-##Diacamma Syndic
+## Diacamma Syndic
 
 **Follow the situation of your condo**
 
