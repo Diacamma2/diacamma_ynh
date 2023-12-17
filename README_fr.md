@@ -45,7 +45,7 @@ _Diacamma Syndic_ permet aux syndics bénévoles de gérer simplement leur copro
  * Ventiler les dépenses de la copropriété sur chacun en fonction de ses tantièmes.
 
 
-**Version incluse :** 23.12.16.17~ynh1
+**Version incluse :** 23.12.17.17~ynh1
 
 **Démo :** https://asso.diacamma.org
 
