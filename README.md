@@ -45,7 +45,7 @@ _Diacamma Syndic_ allows voluntary trustees to simply manage their co-ownership.
  
 
 
-**Shipped version:** 23.12.17.18~ynh1
+**Shipped version:** 23.12.17.19~ynh1
 
 **Demo:** https://asso.diacamma.org
 
