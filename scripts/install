@@ -54,13 +54,12 @@ ynh_add_nginx_config
 
 ### `ynh_systemd_config` is used to configure a systemd script for an app, using the conf/systemd.service template
 
-# Create a dedicated systemd config
-ynh_add_systemd_config
+# Create a dedicated sypervisor config
 
-### `yunohost service add` integrates a service in YunoHost. It then gets
-### displayed in the admin interface and through the others `yunohost service` commands.
-
-yunohost service add ${app} --log="/var/log/${app}/${app}.log"
+ynh_add_config --template="../conf/supervisor.conf" --destination="/etc/supervisor/conf.d/${app}.conf"
+supervisorctl reread
+supervisorctl add ${app}
+sleep 2
 
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
@@ -68,14 +67,11 @@ ynh_use_logrotate
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting app's systemd service..."
+ynh_script_progression --message="Starting app's supervisor service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=${app} --action="start" --log_path="/var/log/${app}/${app}.log"
-
-
-# FIXME : temporary debug
-sleep 10   # Maybe the service needs a few seconds to actually start ...
+supervisorctl restart ${app}
+sleep 2   # Maybe the service needs a few seconds to actually start ...
 
 #=================================================
 # END OF SCRIPT
