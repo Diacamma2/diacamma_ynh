@@ -6,12 +6,12 @@ name = "Diacamma"
 description.en = "Management application for volunteers (association, condominium)"
 description.fr = "Application de gestion pour les bénévoles (association, copropriété)"
 
-version = "23.12.14.16~ynh1"
+version = "23.12.18.10~ynh1"
 
 maintainers = ["Laurent Gay"]
 
 [upstream]
-license = "GNU General Public License v3.0"
+license = " GPL-3.0-or-later"
 website = "https://www.diacamma.org"
 demo = "https://asso.diacamma.org"
 code = "https://github.com/Diacamma2"
@@ -46,25 +46,39 @@ ram.runtime = "50M"
 
     [install.lct_appli]
     ask.en = "Application"
-    help.en = "What application do you want to install?"
     ask.fr = "Application"
+    help.en = "What application do you want to install?"
     help.fr = "Quelle application voulez-vous installer ?"
     type = "select"
     choices.asso = "Diacamma Asso"
     choices.syndic = "Diacamma Syndic"
-    choices.standard = "Lucterios Standard"
+    default = "asso"
     
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
+    help.en = "This language will be used in the software installation"
+    help.fr = "Cette langue sera utiliser dans l'installation du logiciel"
     type = "select"
     choices = ["fr","en"]
+    default = "fr"
 
     [install.archive]
     ask.en = "Archive to upload"
     ask.fr = "Archive à télécharger"
-    type = "string"
+    help.en = "Data from this archive will be loaded at installation"
+    help.fr = "Les données de cette archive seront chargées à l'installation"
+    type = "url"
     optional = true
+    default = ""
+    
+    [install.develop]
+    ask.en = "Use the development version"
+    ask.fr = "Utiliser la version de développement"
+    help.en = "Facility will use 'https://pypi.diacamma.org' as repository"
+    help.fr = "L'installation utilisera 'https://pypi.diacamma.org' comme dépot"
+    type = "boolean"
+    default = false
 
 [resources]
     # See the packaging documentation for the full set
@@ -84,12 +98,11 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
-    admin.url = "/"
     admin.show_tile = false
     admin.allowed = "admins"
 
     [resources.apt]
-    packages = "libxml2-dev,libxslt-dev,libjpeg-dev,libfreetype6,libfreetype6-dev,zlib1g-dev,libpq-dev,python3-pip,python3-dev,python3-tk,python3-pil,python3-venv,build-essential,pkg-config,postgresql,jq"
+    packages = "libxml2-dev,libxslt-dev,libjpeg-dev,libfreetype6,libfreetype6-dev,zlib1g-dev,libpq-dev,python3-pip,python3-dev,python3-tk,python3-pil,python3-venv,build-essential,pkg-config,postgresql,supervisor,jq"
 
     [resources.ports]
     # This will pick a random port for reverse-proxying and store it as the $port setting

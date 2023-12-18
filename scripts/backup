@@ -14,15 +14,14 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup --src_path="/etc/logrotate.d/$app"
 
-ynh_backup --src_path="/etc/systemd/system/$app.service"
+ynh_backup --src_path="/etc/supervisor/conf.d/${app}.conf"
 
 #=================================================
 # BACKUP THE DATABASE
 #=================================================
 ynh_print_info --message="Backing up the postgresql database..."
 
-### (However, things like MySQL dumps *do* take some time to run, though the
-### copy of the generated dump to the archive still happens later)
+ynh_psql_dump_db --database="$db_name" > dbbackup.sql
 
 #=================================================
 # END OF SCRIPT
