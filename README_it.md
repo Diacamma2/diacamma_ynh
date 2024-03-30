@@ -52,8 +52,8 @@ _Diacamma Syndic_ allows voluntary trustees to simply manage their co-ownership.
 ## Screenshot
 
 ![Screenshot di Diacamma](./doc/screenshots/03_bilan_comptable.png)
-![Screenshot di Diacamma](./doc/screenshots/02_situation_coporprietaire.png)
 ![Screenshot di Diacamma](./doc/screenshots/01_fiche_adherent.png)
+![Screenshot di Diacamma](./doc/screenshots/02_situation_coporprietaire.png)
 
 ## Documentazione e risorse
 
