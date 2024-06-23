@@ -51,9 +51,9 @@ _Diacamma Syndic_ permet aux syndics bénévoles de gérer simplement leur copro
 
 ## Captures d’écran
 
+![Capture d’écran de Diacamma](./doc/screenshots/03_bilan_comptable.png)
 ![Capture d’écran de Diacamma](./doc/screenshots/01_fiche_adherent.png)
 ![Capture d’écran de Diacamma](./doc/screenshots/02_situation_coporprietaire.png)
-![Capture d’écran de Diacamma](./doc/screenshots/03_bilan_comptable.png)
 
 ## Documentations et ressources
 
