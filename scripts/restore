@@ -38,11 +38,7 @@ ynh_psql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < dbb
 #=================================================
 ynh_script_progression --message="Refresh the app main directory..." --weight=1
 
-pushd $install_dir
-venv/bin/lucterios_admin.py check
-venv/bin/lucterios_admin.py update
-venv/bin/lucterios_admin.py refreshall
-popd
+update_software
 
 refresh_collect
 
