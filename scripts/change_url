@@ -42,6 +42,8 @@ then
 fi
 extra_json=$(jq -c . /tmp/extra.json)
 venv/bin/lucterios_admin.py modif -n inst-${app} -e ''$extra_json''
+venv/bin/lucterios_admin.py update
+venv/bin/lucterios_admin.py refreshall
 popd
 
 #=================================================
