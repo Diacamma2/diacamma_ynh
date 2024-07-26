@@ -5,7 +5,7 @@
 
 # YunoHost 上的 Diacamma
 
-[![集成程度](https://dash.yunohost.org/integration/diacamma.svg)](https://dash.yunohost.org/appci/app/diacamma) ![工作状态](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/diacamma.svg)](https://ci-apps.yunohost.org/ci/apps/diacamma/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
 
 [![使用 YunoHost 安装 Diacamma](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=diacamma)
 
@@ -45,7 +45,7 @@ _Diacamma Syndic_ allows voluntary trustees to simply manage their co-ownership.
  
 
 
-**分发版本：** 23.12.18.10~ynh1
+**分发版本：** 24.07.26.11~ynh1
 
 **演示：** <https://asso.diacamma.org>
 

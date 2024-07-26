@@ -17,11 +17,7 @@ supervisorctl stop ${app}
 #=================================================
 ynh_script_progression --message="Updating Diacamma..."
 
-pushd $install_dir
-venv/bin/lucterios_admin.py check
-venv/bin/lucterios_admin.py update
-venv/bin/lucterios_admin.py refreshall
-popd
+update_software
 
 refresh_collect
 

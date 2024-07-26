@@ -45,3 +45,13 @@ function check_params()
     venv/bin/lucterios_admin.py security -n inst-${app} -e "MODE=0"
     popd
 }
+
+
+function update_software()
+{
+    pushd $install_dir
+    venv/bin/lucterios_admin.py check
+    venv/bin/lucterios_admin.py update
+    venv/bin/lucterios_admin.py refreshall
+    popd
+}

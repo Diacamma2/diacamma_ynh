@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Diacamma YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/diacamma.svg)](https://dash.yunohost.org/appci/app/diacamma) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/diacamma.svg)](https://ci-apps.yunohost.org/ci/apps/diacamma/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
 
 [![Instalatu Diacamma YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=diacamma)
 
@@ -45,7 +45,7 @@ _Diacamma Syndic_ allows voluntary trustees to simply manage their co-ownership.
  
 
 
-**Paketatutako bertsioa:** 23.12.18.10~ynh1
+**Paketatutako bertsioa:** 24.07.26.11~ynh1
 
 **Demoa:** <https://asso.diacamma.org>
 
