@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Diacamma pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/diacamma.svg)](https://dash.yunohost.org/appci/app/diacamma) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/diacamma.svg)](https://ci-apps.yunohost.org/ci/apps/diacamma/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/diacamma.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/diacamma.maintain.svg)
 
 [![Installer Diacamma avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=diacamma)
 
@@ -45,7 +45,7 @@ _Diacamma Syndic_ permet aux syndics bénévoles de gérer simplement leur copro
  * Ventiler les dépenses de la copropriété sur chacun en fonction de ses tantièmes.
 
 
-**Version incluse :** 23.12.18.10~ynh1
+**Version incluse :** 24.07.26.11~ynh1
 
 **Démo :** <https://asso.diacamma.org>
 
