@@ -3,19 +3,17 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-upgrade_type=$(ynh_check_app_version_changed)
-
 #=================================================
 # STOP SUPERVISOR SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a supervisor service..."
+ynh_script_progression "Stopping a supervisor service..."
 
 supervisorctl stop ${app}
 
 #=================================================
 # UPDATE DIACAMMA
 #=================================================
-ynh_script_progression --message="Updating Diacamma..."
+ynh_script_progression "Updating Diacamma..."
 
 update_software
 
@@ -24,19 +22,19 @@ refresh_collect
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..."
+ynh_script_progression "Upgrading system configurations related to $app..."
 
-ynh_add_nginx_config
+ynh_config_add_nginx
 
-ynh_add_config --template="../conf/supervisor.conf" --destination="/etc/supervisor/conf.d/${app}.conf"
+ynh_config_add --template="supervisor.conf" --destination="/etc/supervisor/conf.d/${app}.conf"
 supervisorctl reread
 
-ynh_use_logrotate --non-append
+ynh_config_add_logrotate
 
 #=================================================
 # START SUPERVISOR SERVICE
 #=================================================
-ynh_script_progression --message="Starting a supervisor service..."
+ynh_script_progression "Starting a supervisor service..."
 
 supervisorctl start ${app}
 
@@ -44,4 +42,4 @@ supervisorctl start ${app}
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"
