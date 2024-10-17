@@ -4,11 +4,11 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# STOP SUPERVISOR SERVICE
+# STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression "Stopping a supervisor service..."
+ynh_script_progression "Stopping $app's systemd service..."
 
-supervisorctl stop ${app}
+ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
 # UPDATE DIACAMMA
@@ -26,17 +26,18 @@ ynh_script_progression "Upgrading system configurations related to $app..."
 
 ynh_config_add_nginx
 
-ynh_config_add --template="supervisor.conf" --destination="/etc/supervisor/conf.d/${app}.conf"
-supervisorctl reread
+ynh_config_add_systemd
+
+yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
 
 ynh_config_add_logrotate
 
 #=================================================
-# START SUPERVISOR SERVICE
+# START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression "Starting a supervisor service..."
+ynh_script_progression "Starting $app's systemd service..."
 
-supervisorctl start ${app}
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT

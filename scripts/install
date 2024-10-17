@@ -6,9 +6,10 @@ source /usr/share/yunohost/helpers
 #=================================================
 # INSTALL APP
 #=================================================
-ynh_script_progression "Installing app..."
+ynh_script_progression "Installing $app..."
 
 pushd $install_dir
+
 python3 -m venv venv
 if [ $develop -eq 1 ]
 then
@@ -51,33 +52,25 @@ check_params
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression "Adding system configurations related to ${app}..."
+ynh_script_progression "Adding system configurations related to $app..."
 
-# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
 
-### `ynh_systemd_config` is used to configure a systemd script for an app, using the conf/systemd.service template
+ynh_config_add_systemd
 
-# Create a dedicated sypervisor config
+yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
 
-ynh_config_add --template="supervisor.conf" --destination="/etc/supervisor/conf.d/${app}.conf"
-supervisorctl reread
-supervisorctl add ${app}
-sleep 2
-
-# Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression "Starting app's supervisor service..."
+ynh_script_progression "Starting $app's supervisor service..."
 
-# Start a systemd service
-supervisorctl restart ${app}
-sleep 2   # Maybe the service needs a few seconds to actually start ...
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
+
 ynh_script_progression "Installation of ${app} completed"
