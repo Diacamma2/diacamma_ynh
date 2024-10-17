@@ -94,8 +94,6 @@ ram.runtime = "50M"
     [resources.ports]
 
     [resources.apt]
-    #packages = "libxml2-dev,libxslt-dev,libjpeg-dev,libfreetype6,libfreetype6-dev,zlib1g-dev,libpq-dev,python3-pip,python3-dev,python3-tk,python3-pil,python3-venv,build-essential,pkg-config,postgresql,supervisor,jq"
-
     packages = "libxml2-dev, libxslt-dev, libjpeg-dev, libfreetype6, libfreetype6-dev, zlib1g-dev, python3-pip, python3-dev, python3-tk, 'python3-imaging|python3-pil', pipx, python3-dev, default-libmysqlclient-dev, build-essential, pkg-config, postgresql"
 
     [resources.database]
